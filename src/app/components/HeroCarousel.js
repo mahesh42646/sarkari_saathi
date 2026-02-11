@@ -9,6 +9,11 @@ export default function HeroCarousel() {
     {
       id: 0,
       name: 'Taj Mahal',
+      title: 'Explore Government Schemes',
+      subtitle: 'Your Gateway to Opportunities',
+      description: 'Discover thousands of government schemes and programs designed to empower citizens across India',
+      stats: { value: '10,000+', label: 'Active Schemes' },
+      ctaText: 'Browse Schemes',
       gradient: ['#fff9e6', '#ffeb3b', '#ffc107', '#ff9800', '#ff6600', '#e65100'],
       sunPosition: { top: '15%', left: '55%' },
       primaryLandmark: 'taj',
@@ -17,6 +22,11 @@ export default function HeroCarousel() {
     {
       id: 1,
       name: 'Gateway of India',
+      title: 'Find Your Dream Job',
+      subtitle: 'Government Jobs Portal',
+      description: 'Access latest government job openings, exam notifications, and career opportunities',
+      stats: { value: '5,000+', label: 'Job Openings' },
+      ctaText: 'View Jobs',
       gradient: ['#e3f2fd', '#64b5f6', '#42a5f5', '#2196f3', '#1976d2', '#0d47a1'],
       sunPosition: { top: '18%', left: '25%' },
       primaryLandmark: 'gateway',
@@ -25,6 +35,11 @@ export default function HeroCarousel() {
     {
       id: 2,
       name: 'India Gate',
+      title: 'State-Wise Benefits',
+      subtitle: 'Tailored for Your State',
+      description: 'Explore state-specific schemes and benefits customized for your region',
+      stats: { value: '28+', label: 'States Covered' },
+      ctaText: 'Select State',
       gradient: ['#f3e5f5', '#ba68c8', '#ab47bc', '#9c27b0', '#7b1fa2', '#4a148c'],
       sunPosition: { top: '12%', left: '70%' },
       primaryLandmark: 'indiagate',
@@ -33,6 +48,11 @@ export default function HeroCarousel() {
     {
       id: 3,
       name: 'Parliament House',
+      title: 'Stay Updated',
+      subtitle: 'Latest Notifications',
+      description: 'Get real-time updates on new schemes, policy changes, and important announcements',
+      stats: { value: 'Daily', label: 'Updates' },
+      ctaText: 'Get Notified',
       gradient: ['#e8f5e9', '#81c784', '#66bb6a', '#4caf50', '#388e3c', '#1b5e20'],
       sunPosition: { top: '20%', left: '60%' },
       primaryLandmark: 'parliament',
@@ -41,6 +61,11 @@ export default function HeroCarousel() {
     {
       id: 4,
       name: 'Qutub Minar',
+      title: 'Easy Application Process',
+      subtitle: 'Apply in Minutes',
+      description: 'Streamlined application process with step-by-step guidance for all government services',
+      stats: { value: '100%', label: 'Online Process' },
+      ctaText: 'Apply Now',
       gradient: ['#fff3e0', '#ffb74d', '#ffa726', '#ff9800', '#f57c00', '#e65100'],
       sunPosition: { top: '14%', left: '45%' },
       primaryLandmark: 'qutub',
@@ -126,6 +151,152 @@ export default function HeroCarousel() {
             loading="lazy"
           />
           <div className="hero-sun" style={sunStyle}></div>
+          
+          {/* Informative Text Overlay - Only for main slide */}
+          {isMain && (
+            <div 
+              className="hero-content-overlay"
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'flex-start',
+                padding: '2rem 3rem',
+                zIndex: 3,
+                background: 'linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, transparent 100%)',
+                pointerEvents: 'none'
+              }}
+            >
+              <div 
+                className="hero-content-wrapper"
+                style={{
+                  maxWidth: '600px',
+                  animation: isSliding ? 'none' : 'fadeInUp 0.8s ease-out'
+                }}
+              >
+                <div 
+                  className="hero-subtitle"
+                  style={{
+                    fontSize: '1rem',
+                    fontWeight: '500',
+                    color: 'rgba(255, 255, 255, 0.9)',
+                    textTransform: 'uppercase',
+                    letterSpacing: '2px',
+                    marginBottom: '0.5rem',
+                    textShadow: '0 2px 10px rgba(0,0,0,0.3)'
+                  }}
+                >
+                  {slideData.subtitle}
+                </div>
+                <h1 
+                  className="hero-title"
+                  style={{
+                    fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+                    fontWeight: '800',
+                    color: '#ffffff',
+                    marginBottom: '1rem',
+                    lineHeight: '1.2',
+                    textShadow: '0 4px 20px rgba(0,0,0,0.6), 0 2px 10px rgba(0,0,0,0.4), 0 0 40px rgba(255,255,255,0.1)'
+                  }}
+                >
+                  {slideData.title}
+                </h1>
+                <p 
+                  className="hero-description"
+                  style={{
+                    fontSize: 'clamp(0.9rem, 2vw, 1.1rem)',
+                    color: 'rgba(255, 255, 255, 0.95)',
+                    marginBottom: '2rem',
+                    lineHeight: '1.6',
+                    textShadow: '0 2px 10px rgba(0,0,0,0.4)',
+                    maxWidth: '500px'
+                  }}
+                >
+                  {slideData.description}
+                </p>
+                <div 
+                  className="hero-stats-cta"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '2rem',
+                    flexWrap: 'wrap'
+                  }}
+                >
+                  <div 
+                    className="hero-stats"
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      padding: '1rem 1.5rem',
+                      background: 'rgba(255, 255, 255, 0.15)',
+                      backdropFilter: 'blur(10px)',
+                      borderRadius: '12px',
+                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      boxShadow: '0 8px 32px rgba(0,0,0,0.2)'
+                    }}
+                  >
+                    <div 
+                      style={{
+                        fontSize: '2rem',
+                        fontWeight: '700',
+                        color: '#ffffff',
+                        lineHeight: '1',
+                        textShadow: '0 2px 10px rgba(0,0,0,0.3)'
+                      }}
+                    >
+                      {slideData.stats.value}
+                    </div>
+                    <div 
+                      style={{
+                        fontSize: '0.85rem',
+                        color: 'rgba(255, 255, 255, 0.9)',
+                        marginTop: '0.25rem',
+                        textTransform: 'uppercase',
+                        letterSpacing: '1px'
+                      }}
+                    >
+                      {slideData.stats.label}
+                    </div>
+                  </div>
+                  <button
+                    className="hero-cta-button"
+                    style={{
+                      padding: '1rem 2.5rem',
+                      fontSize: '1rem',
+                      fontWeight: '600',
+                      color: '#1e3a8a',
+                      background: '#ffffff',
+                      border: 'none',
+                      borderRadius: '50px',
+                      cursor: 'pointer',
+                      boxShadow: '0 8px 24px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.2)',
+                      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                      pointerEvents: 'auto',
+                      textTransform: 'uppercase',
+                      letterSpacing: '1px'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)';
+                      e.currentTarget.style.boxShadow = '0 12px 32px rgba(0,0,0,0.4), 0 6px 16px rgba(0,0,0,0.3)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                      e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.2)';
+                    }}
+                  >
+                    {slideData.ctaText}
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+          
           <svg 
             className="hero-skyline" 
             viewBox="0 0 1200 300" 
